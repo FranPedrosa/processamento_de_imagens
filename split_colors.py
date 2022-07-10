@@ -14,7 +14,7 @@ def less_colors(src):
     #vs = v // 0.25 + 10
     #dst[mask] = vs[mask]
 
-    mask = s > 0.3
+    mask = s > 0.2
     hs = ((h+ 1/14) // (1/7) % 7)+ 1
     dst[mask] = hs[mask]
 
