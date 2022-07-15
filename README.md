@@ -4,9 +4,6 @@ Um trabalho final da disciplina SCC0251 - Processamento de Imagens.
 Os valores utilizados no processo de Filtragem com HSV e no cálculo da distância Manhattan aceitável foram adquiridas empiracamente. Ao longo do desenvolvimento do projeto, identificamos que tais valores eram os que mais se adequavam ao nosso objetivo.
 
 Com a missão de identificar tampinhas de garrafas PET, e com um data set fornecido por uma empresa de geladeiras onde um membro do grupo faz estágio, fizemos uso de HSV, retirando o hue, e extraímos seções de cor vermelha (Coca-cola).
-**Entrada e Saída:**<br>
-<img src=https://raw.githubusercontent.com/FranPedrosa/processamento_de_imagens/master/readme_imgs/2_4.jpg">
-<img src=https://raw.githubusercontent.com/FranPedrosa/processamento_de_imagens/master/readme_imgs/out.png">
 ![image](https://user-images.githubusercontent.com/54639674/179136646-0b6a046d-8ff8-4a59-a9c6-49346606fa4f.png)
 
 Ignorando as partes com saturação indesejada:<br>
