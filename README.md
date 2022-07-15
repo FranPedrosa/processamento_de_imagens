@@ -1,37 +1,7 @@
-# processamento de magens
+# Processamento de magens
 Um trabalho final da disciplina SCC0251 - Processamento de Imagens.
 
-
-Nossa primeira experiência foi analisar a imagem diferentes modelos de cor para analisar qual seria mais produtivo de trabalhar.<br/>
-
-```
-python3 teste1.py shelf_images/12_2.jpg
-``` 
-![Color Spaces](readme_imgs/img1.png)
-
-Notamos que o ideal para separar os objetos do fundo é a saturação e para para separar os diferentes objetos entre si o hue.
-Conseguimos produzir esssa imagem com menos cores para tentar simplificar o modelo.
-
-```
-python3 teste8.py shelf_images/18_3.jpg
-``` 
-![Less colors](readme_imgs/img2.png)
-
-A partir de cada cor geramos uma máscara, e processamos as máscaras para ter uma sequência de pixels representando as bordas da máscara.
-A imagem seguinte mostra as bordas, e sobreposição das bordas sobre a imagem.
-
-```
-python3 teste12.py shelf_images/18_3.jpg
-``` 
-![Shapes](readme_imgs/img3.png)
-![Overlay](readme_imgs/img4.png)
-
-Pegamos o angulo da tangente em cada ponto dessas curvas e a subdividimos em 20 pedaços, comparamos esses 20 valores entre si para tentar achar formas parecidas.
-Esse foi o resultado:
-
-```
-python3 teste10.py shelf_images/18_3.jpg
-``` 
-![Shapes Patterns](readme_imgs/img5.png)
-
-Acreditamos que esse método pode vir a ser suficiente para reconhecer as tampinhas das garrafa.
+Com a missão de identificar tampinhas de garrafas PET, e com um data set fornecido por uma empresa de geladeiras onde um membro do grupo faz estágio, fizemos uso de HSV, retirando o hue, e extraímos seções de cor vermelha (Coca-cola).
+Foi aplicado Opening nas imagens, de modo que pequenos artefatos fossem removidos e as bordas identificadas fossem suavizadas. Adquirindo as bordas desejadas, utilizou-se uma lógica que permitisse identificar transições em uma 8-neighbourHood, permitindo que distintas formas idênticas fossem filtradas e classificadas de acordo com sua distância com seu centro. Com uso da distância de Manhattan, verificou-se que as tampinhas possuíam um perfil similar, e esses parâmetros foram utilizados para treinar um modelo que identificaria tampinhas nesses tipos de imagens.
+Vale ressaltar que o valor Manhattan utilizado e o hue foram obtidos por meio de processos empíricos.
+Ao fim, foi aplicado ao modelo as demais imagens, e no geral, bons resultados foram obtidos. Há casos em que algumas tampinhas não são identificadas, ou regiões não interessantes foram consideradas tampinhas, mas representam pequena fração da amostra de dados presente.
